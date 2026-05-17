@@ -1,0 +1,868 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #6366f1;
+    --primary-dark: #4f46e5;
+    --primary-light: #818cf8;
+    --secondary: #10b981;
+    --danger: #ef4444;
+    --warning: #f59e0b;
+    --dark: #1f2937;
+    --gray: #6b7280;
+    --light: #f3f4f6;
+    --white: #ffffff;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding-bottom: 70px;
+}
+
+#app {
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--white);
+    min-height: 100vh;
+    position: relative;
+    box-shadow: var(--shadow-lg);
+}
+
+/* Header Styles */
+.header {
+    background: var(--gradient);
+    padding: 1rem;
+    border-radius: 0 0 25px 25px;
+    color: white;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo i {
+    font-size: 1.8rem;
+}
+
+.wallet-card {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 0.5rem 1rem;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.wallet-card i {
+    font-size: 1.2rem;
+}
+
+.wallet-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.wallet-label {
+    font-size: 0.7rem;
+    opacity: 0.9;
+}
+
+.wallet-amount {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.invite-banner {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 0.75rem;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.invite-banner i {
+    font-size: 1.2rem;
+}
+
+.invite-btn {
+    background: white;
+    color: var(--primary);
+    border: none;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.invite-btn:hover {
+    transform: scale(1.05);
+}
+
+/* Main Content */
+.main-content {
+    padding: 1rem;
+    padding-bottom: 2rem;
+}
+
+/* Stats Cards */
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.stat-card {
+    background: var(--white);
+    padding: 0.8rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    transition: transform 0.3s;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+}
+
+.stat-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--gradient);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.stat-info {
+    flex: 1;
+}
+
+.stat-value {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--dark);
+}
+
+.stat-label {
+    font-size: 0.7rem;
+    color: var(--gray);
+}
+
+/* Section Styles */
+.section {
+    margin-bottom: 1.5rem;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.section-header h2 {
+    font-size: 1.1rem;
+    color: var(--dark);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.section-badge {
+    background: var(--gradient);
+    color: white;
+    padding: 0.2rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 500;
+}
+
+/* Tasks Grid */
+.tasks-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+}
+
+.task-item {
+    background: var(--white);
+    border-radius: 15px;
+    padding: 1rem;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.3s;
+    border: 1px solid var(--light);
+}
+
+.task-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.task-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--gradient);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+}
+
+.task-icon i {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.task-details h3 {
+    font-size: 0.85rem;
+    margin-bottom: 0.2rem;
+    color: var(--dark);
+}
+
+.task-details p {
+    font-size: 0.7rem;
+    color: var(--gray);
+}
+
+.task-reward {
+    color: var(--secondary);
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 0.5rem 0;
+}
+
+.task-btn {
+    background: var(--gradient);
+    color: white;
+    border: none;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: 100%;
+}
+
+.task-btn:hover {
+    transform: scale(1.05);
+}
+
+/* Captcha Tasks */
+.captcha-tasks {
+    display: grid;
+    gap: 1rem;
+}
+
+.captcha-card {
+    background: var(--white);
+    border-radius: 15px;
+    padding: 1rem;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--light);
+}
+
+.captcha-level {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.8rem;
+}
+
+.level-badge {
+    font-weight: bold;
+    font-size: 0.85rem;
+}
+
+.easy-level .level-badge { color: var(--secondary); }
+.medium-level .level-badge { color: var(--warning); }
+.hard-level .level-badge { color: var(--danger); }
+
+.time-badge {
+    background: var(--light);
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+}
+
+.captcha-preview {
+    text-align: center;
+    margin-bottom: 0.8rem;
+}
+
+.captcha-preview img {
+    border-radius: 8px;
+    max-width: 100%;
+}
+
+.captcha-input {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.8rem;
+}
+
+.captcha-input input {
+    flex: 1;
+    padding: 0.6rem;
+    border: 1px solid var(--light);
+    border-radius: 8px;
+    font-size: 0.8rem;
+}
+
+.captcha-input button {
+    background: var(--gradient);
+    color: white;
+    border: none;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.captcha-reward {
+    text-align: center;
+    color: var(--secondary);
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+/* Spin Wheel */
+.spin-wheel-container {
+    background: var(--gradient);
+    border-radius: 20px;
+    padding: 1.5rem;
+    text-align: center;
+    color: white;
+}
+
+.spin-info h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+}
+
+.spin-info p {
+    font-size: 0.8rem;
+    opacity: 0.9;
+}
+
+.wheel-wrapper {
+    position: relative;
+    display: inline-block;
+    margin: 1rem 0;
+}
+
+#wheelCanvas {
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.spin-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    color: var(--primary);
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: var(--shadow-lg);
+    transition: transform 0.2s;
+}
+
+.spin-btn:hover {
+    transform: translate(-50%, -50%) scale(1.05);
+}
+
+.spin-stats {
+    margin-top: 0.5rem;
+}
+
+.spin-points {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+}
+
+/* Withdraw Options */
+.withdraw-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.8rem;
+}
+
+.withdraw-card {
+    background: var(--white);
+    padding: 1rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s;
+}
+
+.withdraw-card:hover {
+    transform: translateY(-3px);
+}
+
+.withdraw-icon {
+    width: 45px;
+    height: 45px;
+    background: var(--gradient);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 0.5rem;
+    color: white;
+}
+
+.withdraw-card h3 {
+    font-size: 0.8rem;
+    margin-bottom: 0.3rem;
+    color: var(--dark);
+}
+
+.withdraw-card p {
+    font-size: 0.7rem;
+    color: var(--gray);
+    margin-bottom: 0.5rem;
+}
+
+.withdraw-btn {
+    background: var(--gradient);
+    color: white;
+    border: none;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* Leaderboard */
+.leaderboard {
+    background: var(--white);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.leaderboard-item {
+    display: flex;
+    align-items: center;
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid var(--light);
+}
+
+.leaderboard-item:last-child {
+    border-bottom: none;
+}
+
+.rank {
+    width: 35px;
+    height: 35px;
+    background: var(--gradient);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    margin-right: 0.8rem;
+}
+
+.user-info {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.user-info i {
+    font-size: 1.2rem;
+    color: var(--gray);
+}
+
+.points {
+    font-weight: bold;
+    color: var(--primary);
+}
+
+/* Work Banner */
+.work-banner {
+    background: var(--gradient);
+    border-radius: 15px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: white;
+    margin-top: 1rem;
+}
+
+.work-banner i {
+    font-size: 2rem;
+}
+
+.work-content h3 {
+    font-size: 0.9rem;
+    margin-bottom: 0.2rem;
+}
+
+.work-content p {
+    font-size: 0.7rem;
+    opacity: 0.9;
+}
+
+/* Bottom Navigation */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--white);
+    display: flex;
+    justify-content: space-around;
+    padding: 0.8rem;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+    z-index: 100;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: var(--gray);
+    font-size: 0.7rem;
+    transition: color 0.3s;
+}
+
+.nav-item i {
+    font-size: 1.2rem;
+    margin-bottom: 0.2rem;
+}
+
+.nav-item.active {
+    color: var(--primary);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.3s;
+}
+
+.modal-content {
+    background: var(--white);
+    margin: 10% auto;
+    padding: 1.5rem;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    animation: slideIn 0.3s;
+}
+
+.withdraw-modal {
+    max-width: 350px;
+}
+
+.close {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--gray);
+}
+
+.close:hover {
+    color: var(--dark);
+}
+
+/* Auth Styles */
+.auth-container {
+    text-align: center;
+}
+
+.auth-header {
+    margin-bottom: 1.5rem;
+}
+
+.auth-header i {
+    font-size: 3rem;
+    color: var(--primary);
+}
+
+.auth-header h2 {
+    margin: 0.5rem 0;
+    color: var(--dark);
+}
+
+.auth-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 0.6rem;
+    border: none;
+    background: var(--light);
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.tab-btn.active {
+    background: var(--gradient);
+    color: white;
+}
+
+.auth-form {
+    display: none;
+}
+
+.auth-form.active {
+    display: block;
+}
+
+.auth-form input {
+    width: 100%;
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+    border: 1px solid var(--light);
+    border-radius: 10px;
+    font-size: 0.9rem;
+}
+
+.auth-submit {
+    width: 100%;
+    background: var(--gradient);
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.auth-footer {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: var(--gray);
+}
+
+.auth-footer a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+/* Withdraw Methods */
+.withdraw-methods {
+    display: flex;
+    gap: 0.8rem;
+    margin: 1rem 0;
+}
+
+.method-option {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.8rem;
+    border: 2px solid var(--light);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.method-option input {
+    display: none;
+}
+
+.method-option:has(input:checked) {
+    border-color: var(--primary);
+    background: #f3e8ff;
+}
+
+.method-option i {
+    font-size: 1.5rem;
+    margin-bottom: 0.3rem;
+}
+
+.method-option span {
+    font-size: 0.7rem;
+}
+
+.withdraw-input {
+    width: 100%;
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+    border: 1px solid var(--light);
+    border-radius: 10px;
+}
+
+.withdraw-confirm {
+    width: 100%;
+    background: var(--gradient);
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 10px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 0.5rem;
+}
+
+/* Toast Message */
+.toast {
+    position: fixed;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--dark);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    z-index: 1100;
+    display: none;
+    animation: slideUp 0.3s;
+    white-space: nowrap;
+}
+
+.toast.success {
+    background: var(--secondary);
+}
+
+.toast.error {
+    background: var(--danger);
+}
+
+.toast.warning {
+    background: var(--warning);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translate(-50%, 20px);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, 0);
+        opacity: 1;
+    }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .tasks-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .withdraw-options {
+        grid-template-columns: 1fr;
+    }
+    
+    .stats-container {
+        gap: 0.5rem;
+    }
+    
+    .stat-card {
+        padding: 0.6rem;
+    }
+    
+    .stat-value {
+        font-size: 1rem;
+    }
+}
+
+/* Loading Spinner */
+.loading {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    border: 3px solid var(--light);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    z-index: 2000;
+}
+
+@keyframes spin {
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}

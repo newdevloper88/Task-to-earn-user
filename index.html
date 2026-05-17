@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>FISKMAN - Earn Money Complete Tasks</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Header with Balance -->
+        <header class="header">
+            <div class="header-top">
+                <div class="logo">
+                    <i class="fas fa-fish"></i>
+                    <span>FISKMAN</span>
+                </div>
+                <div class="wallet-card">
+                    <i class="fas fa-wallet"></i>
+                    <div class="wallet-info">
+                        <span class="wallet-label">My Wallet</span>
+                        <span class="wallet-amount" id="userBalance">0</span>
+                    </div>
+                </div>
+            </div>
+            <div class="invite-banner">
+                <i class="fas fa-gift"></i>
+                <span>Invite & Earn</span>
+                <button class="invite-btn" onclick="copyReferralLink()">
+                    <i class="fas fa-share-alt"></i> Invite Now
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Stats Cards -->
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-tasks"></i></div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="totalEarned">0</span>
+                        <span class="stat-label">Total Earned</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-users"></i></div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="referralCount">0</span>
+                        <span class="stat-label">Referrals</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="tasksCompleted">0</span>
+                        <span class="stat-label">Tasks Done</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Easy Tasks Section -->
+            <div class="section">
+                <div class="section-header">
+                    <h2><i class="fas fa-star"></i> Easy Tasks</h2>
+                    <span class="section-badge">15 sec</span>
+                </div>
+                <div class="tasks-grid">
+                    <div class="task-item easy">
+                        <div class="task-icon"><i class="fab fa-telegram"></i></div>
+                        <div class="task-details">
+                            <h3>Telegram Group</h3>
+                            <p>Join our Telegram channel</p>
+                        </div>
+                        <div class="task-reward">+70</div>
+                        <button class="task-btn" onclick="startTask('telegram')">Join Group</button>
+                    </div>
+                    <div class="task-item easy">
+                        <div class="task-icon"><i class="fab fa-facebook"></i></div>
+                        <div class="task-details">
+                            <h3>Facebook Page</h3>
+                            <p>Like and follow our page</p>
+                        </div>
+                        <div class="task-reward">+70</div>
+                        <button class="task-btn" onclick="startTask('facebook')">Follow Page</button>
+                    </div>
+                    <div class="task-item easy">
+                        <div class="task-icon"><i class="fab fa-instagram"></i></div>
+                        <div class="task-details">
+                            <h3>Instagram</h3>
+                            <p>Follow on Instagram</p>
+                        </div>
+                        <div class="task-reward">+50</div>
+                        <button class="task-btn" onclick="startTask('instagram')">Follow</button>
+                    </div>
+                    <div class="task-item easy">
+                        <div class="task-icon"><i class="fab fa-youtube"></i></div>
+                        <div class="task-details">
+                            <h3>YouTube Channel</h3>
+                            <p>Subscribe to our channel</p>
+                        </div>
+                        <div class="task-reward">+100</div>
+                        <button class="task-btn" onclick="startTask('youtube')">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Captcha Tasks Section -->
+            <div class="section">
+                <div class="section-header">
+                    <h2><i class="fas fa-shield-alt"></i> Captcha Tasks</h2>
+                    <span class="section-badge">Earn Fast</span>
+                </div>
+                <div class="captcha-tasks">
+                    <div class="captcha-card">
+                        <div class="captcha-level easy-level">
+                            <span class="level-badge">EASY</span>
+                            <span class="time-badge">15 sec</span>
+                        </div>
+                        <div class="captcha-preview">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='60' viewBox='0 0 200 60'%3E%3Crect width='200' height='60' fill='%236366f1'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='white' font-size='24' font-family='monospace'%3E5F2A9X%3C/text%3E%3C/svg%3E" alt="Captcha">
+                        </div>
+                        <div class="captcha-input">
+                            <input type="text" placeholder="Write Captcha here..." id="easyCaptcha">
+                            <button onclick="submitCaptcha('easy', 1)">Submit</button>
+                        </div>
+                        <div class="captcha-reward">1 point</div>
+                    </div>
+
+                    <div class="captcha-card">
+                        <div class="captcha-level medium-level">
+                            <span class="level-badge">MEDIUM</span>
+                            <span class="time-badge">10 sec</span>
+                        </div>
+                        <div class="captcha-preview">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='60' viewBox='0 0 200 60'%3E%3Crect width='200' height='60' fill='%23f59e0b'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='white' font-size='24' font-family='monospace'%3EX7B3K9%3C/text%3E%3C/svg%3E" alt="Captcha">
+                        </div>
+                        <div class="captcha-input">
+                            <input type="text" placeholder="Write Captcha here..." id="mediumCaptcha">
+                            <button onclick="submitCaptcha('medium', 3)">Submit</button>
+                        </div>
+                        <div class="captcha-reward">3 points</div>
+                    </div>
+
+                    <div class="captcha-card">
+                        <div class="captcha-level hard-level">
+                            <span class="level-badge">HARD</span>
+                            <span class="time-badge">7 sec</span>
+                        </div>
+                        <div class="captcha-preview">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='60' viewBox='0 0 200 60'%3E%3Crect width='200' height='60' fill='%23ef4444'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='white' font-size='20' font-family='monospace'%3E2R$M8P%3C/text%3E%3C/svg%3E" alt="Captcha">
+                        </div>
+                        <div class="captcha-input">
+                            <input type="text" placeholder="Write Captcha here..." id="hardCaptcha">
+                            <button onclick="submitCaptcha('hard', 5)">Submit</button>
+                        </div>
+                        <div class="captcha-reward">5 points</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Spin & Win Section -->
+            <div class="section">
+                <div class="spin-wheel-container">
+                    <div class="spin-info">
+                        <h2><i class="fas fa-gamepad"></i> Spin & Win</h2>
+                        <p>Try your luck! Win up to $50</p>
+                    </div>
+                    <div class="wheel-wrapper">
+                        <canvas id="wheelCanvas" width="250" height="250"></canvas>
+                        <button class="spin-btn" onclick="spinWheel()">
+                            <i class="fas fa-play"></i> SPIN
+                        </button>
+                    </div>
+                    <div class="spin-stats">
+                        <div class="spin-points">
+                            <i class="fas fa-coins"></i>
+                            <span id="spinPoints">150</span> points per spin
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Withdraw Section -->
+            <div class="section">
+                <div class="section-header">
+                    <h2><i class="fas fa-money-bill-wave"></i> Withdraw Earnings</h2>
+                    <span class="section-badge">5000 Points = $5</span>
+                </div>
+                <div class="withdraw-options">
+                    <div class="withdraw-card">
+                        <div class="withdraw-icon"><i class="fas fa-smile"></i></div>
+                        <h3>EASY WITHDRAW</h3>
+                        <p>Minimum Withdraw = $5</p>
+                        <button class="withdraw-btn" onclick="requestWithdraw('easy')">Withdraw</button>
+                    </div>
+                    <div class="withdraw-card">
+                        <div class="withdraw-icon"><i class="fas fa-chart-line"></i></div>
+                        <h3>MEDIUM WITHDRAW</h3>
+                        <p>Minimum Withdraw = $10</p>
+                        <button class="withdraw-btn" onclick="requestWithdraw('medium')">Withdraw</button>
+                    </div>
+                    <div class="withdraw-card">
+                        <div class="withdraw-icon"><i class="fas fa-trophy"></i></div>
+                        <h3>HARD WITHDRAW</h3>
+                        <p>Minimum Withdraw = $30</p>
+                        <button class="withdraw-btn" onclick="requestWithdraw('hard')">Withdraw</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Leaderboard Section -->
+            <div class="section">
+                <div class="section-header">
+                    <h2><i class="fas fa-trophy"></i> Top Earners</h2>
+                    <span class="section-badge">Leaderboard</span>
+                </div>
+                <div class="leaderboard">
+                    <div class="leaderboard-item">
+                        <div class="rank">1</div>
+                        <div class="user-info">
+                            <i class="fas fa-user-circle"></i>
+                            <span>Lemon Hissh</span>
+                        </div>
+                        <div class="points">2975</div>
+                    </div>
+                    <div class="leaderboard-item">
+                        <div class="rank">2</div>
+                        <div class="user-info">
+                            <i class="fas fa-user-circle"></i>
+                            <span>Tasty Hissh</span>
+                        </div>
+                        <div class="points">2745</div>
+                    </div>
+                    <div class="leaderboard-item">
+                        <div class="rank">3</div>
+                        <div class="user-info">
+                            <i class="fas fa-user-circle"></i>
+                            <span>Fushin Rishon</span>
+                        </div>
+                        <div class="points">2100</div>
+                    </div>
+                    <div class="leaderboard-item">
+                        <div class="rank">4</div>
+                        <div class="user-info">
+                            <i class="fas fa-user-circle"></i>
+                            <span>Alice Smith</span>
+                        </div>
+                        <div class="points">1955</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Work from Home Banner -->
+            <div class="work-banner">
+                <i class="fas fa-home"></i>
+                <div class="work-content">
+                    <h3>Work from Home</h3>
+                    <p>Earn money doing simple tasks from anywhere!</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <a href="#" class="nav-item active" data-page="home">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="#" class="nav-item" data-page="tasks">
+                <i class="fas fa-tasks"></i>
+                <span>Tasks</span>
+            </a>
+            <a href="#" class="nav-item" data-page="earnings">
+                <i class="fas fa-chart-line"></i>
+                <span>Earnings</span>
+            </a>
+            <a href="#" class="nav-item" data-page="profile">
+                <i class="fas fa-user"></i>
+                <span>Profile</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- Auth Modal -->
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="auth-container">
+                <div class="auth-header">
+                    <i class="fas fa-fish"></i>
+                    <h2>FISKMAN</h2>
+                    <p>Earn money by completing tasks</p>
+                </div>
+                <div class="auth-tabs">
+                    <button class="tab-btn active" onclick="switchTab('login')">Sign In</button>
+                    <button class="tab-btn" onclick="switchTab('register')">Sign Up</button>
+                </div>
+                <div id="loginForm" class="auth-form active">
+                    <input type="email" id="loginEmail" placeholder="Email address" required>
+                    <input type="password" id="loginPassword" placeholder="Create a password" required>
+                    <button class="auth-submit" onclick="loginUser()">Sign Up</button>
+                    <p class="auth-footer">Already have an account? <a href="#" onclick="switchTab('register')">Sign in</a></p>
+                </div>
+                <div id="registerForm" class="auth-form">
+                    <input type="text" id="regName" placeholder="Your name" required>
+                    <input type="email" id="regEmail" placeholder="Email address" required>
+                    <input type="password" id="regPassword" placeholder="Create a password" required>
+                    <input type="text" id="regReferral" placeholder="Referral code (optional)">
+                    <button class="auth-submit" onclick="registerUser()">Sign Up</button>
+                    <p class="auth-footer">Already have an account? <a href="#" onclick="switchTab('login')">Sign in</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Withdraw Modal -->
+    <div id="withdrawModal" class="modal">
+        <div class="modal-content withdraw-modal">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2><i class="fas fa-hand-holding-usd"></i> Select Withdraw Method</h2>
+            <div class="withdraw-methods">
+                <label class="method-option">
+                    <input type="radio" name="method" value="paypal">
+                    <i class="fab fa-paypal"></i>
+                    <span>PayPal</span>
+                </label>
+                <label class="method-option">
+                    <input type="radio" name="method" value="bank">
+                    <i class="fas fa-university"></i>
+                    <span>Bank Transfer</span>
+                </label>
+                <label class="method-option">
+                    <input type="radio" name="method" value="crypto">
+                    <i class="fab fa-bitcoin"></i>
+                    <span>Cryptocurrency</span>
+                </label>
+            </div>
+            <input type="text" id="withdrawAccount" placeholder="Account email/address" class="withdraw-input">
+            <input type="number" id="withdrawAmount" placeholder="Amount in $" class="withdraw-input">
+            <button class="withdraw-confirm" onclick="confirmWithdraw()">Request Withdrawal</button>
+        </div>
+    </div>
+
+    <!-- Message Toast -->
+    <div id="toast" class="toast"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
